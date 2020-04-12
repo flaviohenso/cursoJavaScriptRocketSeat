@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso javaScript</title>
+</head>
+
+<body>
+
+    <script>
+        console.log((function (a, b) {
+            return a + b
+        })(2, 8))
+
+        //Operadores logicos
+
+        const sexo = 'F'
+
+        let masculino = sexo === 'M'
+
+        console.log(masculino)
+
+        //operador ternário
+        console.log(sexo === "M" ? 'Masculino' : "Faminino")
+
+        function exibiAlgo() {
+            console.log('ola')
+        }
+
+        //nao informa os parenteses pois esta passando a funçao como parametro
+        //setInterval(exibiAlgo,1000)
+
+        //executa 5 segudos após o carregamento do sript na pagina
+        setTimeout(exibiAlgo, 5000)
+
+        
+    </script>
+</body>
+
+</html>
