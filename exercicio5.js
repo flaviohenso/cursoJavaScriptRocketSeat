@@ -10,8 +10,7 @@ const usuarios = [
 ]
 
 function descricao(usuarios) {
-    return `O ${usuarios[0].nome} possui as habilidades: ${usuarios[0].habilidade}
-            O ${usuarios[1].nome} possui as habilidades: ${usuarios[1].habilidade} `
+    return `O ${usuarios[0].nome} possui as habilidades: ${usuarios[0].habilidade} \nO ${usuarios[1].nome} possui as habilidades: ${usuarios[1].habilidade}`
 }
 
 
