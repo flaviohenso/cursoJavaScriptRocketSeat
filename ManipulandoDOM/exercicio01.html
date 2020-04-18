@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+
+    <!-- //exercicio 1 -->
+    <button id=criar onclick="criarQuadrado()">criar</button>
+    <!-- //exercicio 2 -->
+    <div id="quadrado"></div>
+    <!-- //exercicio 3 -->
+    <div id=listaNomes></div>
+    <!-- //exercicio 4 -->
+    <div id=inputAdd>
+        <input type="text" name="nome">
+        <button id="adicionar">Adicionar</button>
+    </div>
+
+    <script>
+
+        let posicao = 0
+        let newColor = getRandomColor()
+        const nomes = ["flavio", "Gabriel", "Fabio"]
+        let divListaNomes = document.querySelector('#listaNomes')
+        let ulElement = document.createElement('ul')
+        let btn = document.querySelector('#adicionar')
+
+        btn.onclick = () => {
+            adicionar()
+        }
+
+        function criarQuadrado() {
+
+            let divElement = document.createElement('div')
+
+            const marginLeft = `margin-left: ${posicao}px`
+            const height = `height: 100px`
+            const width = `width: 100px`
+
+            divElement.setAttribute('style', `background-color: ${newColor}; ${marginLeft}; ${height}; ${width};`)
+            divElement.setAttribute('class', 'divScript')
+            divElement.onmouseover = () => {
+                divElement.setAttribute('style', `background-color: ${getRandomColor()}; ${marginLeft}; ${height}; ${width};`)
+            }
+
+            let containertElement = document.querySelector('#quadrado')
+
+            containertElement.appendChild(divElement)
+
+            posicao += 100
+            newColor = getRandomColor()
+        }
+
+
+        function getRandomColor() {
+
+            const letters = "0123456789ABCDEF"
+            let color = "#"
+
+            for (let index = 0; index < 6; index++) {
+                color += letters[Math.floor(Math.random() * 16)]
+            }
+
+            return color
+        }
+
+        const adicionar = () => {
+            let inputText = document.querySelector('input[name=nome]')
+
+            let liElement = document.createElement('li')
+            liElement.appendChild(document.createTextNode(inputText.value))
+            ulElement.appendChild(liElement)
+
+            //let divInput = document.querySelector("#inputAdd")
+            //divInput.removeChild(inputText)
+            inputText.value = ''
+
+            divListaNomes.appendChild(ulElement)
+        }
+
+        (function () {
+
+            nomes.forEach(element => {
+                let liElement = document.createElement('li')
+                liElement.appendChild(document.createTextNode(element))
+                ulElement.appendChild(liElement)
+            });
+
+            divListaNomes.appendChild(ulElement)
+        })()
+
+
+    </script>
+</body>
+
+</html>
